@@ -32,16 +32,18 @@ First of all, be sure you understand :
 
 Type the following to proceed with the installation process.
 
-Step 1: Update and Upgrade the apt tool to ensure we are working with the latest and greatest.
+### Step 1: Update and Upgrade the apt tool to ensure we are working with the latest and greatest.
+
     sudo apt update && upgrade
+
 &nbsp;
-Step 2: Install Apache and select Y when prompted.
-    sudo apt install apache2
+### Step 2: Install Apache and select Y when prompted.
+    sudo apt install apache2 libapache2-mod-php
 &nbsp;
-Step 3:  Now that we have installed Apache we have to start the service.
+### Step 3:  Now that we have installed Apache we have to start the service.
     systemctl start apache2
 &nbsp;
-Step 4: Enabling Apache will automatically start the web server whenever the server is turned on.
+### Step 4: Enabling Apache will automatically start the web server whenever the server is turned on.
     systemctl enable apache2
 
 **Verify Apache by visiting the server’s IP or hostname; you’ll see Apache’s default page.**
