@@ -47,7 +47,7 @@ Type the following to proceed with the installation process.
     systemctl enable apache2
 
 **Verify Apache by visiting the server’s IP or hostname; you’ll see Apache’s default page.**
-#imageCenterCorners(./img/apache-default-page.png, 200px, 0, 0)
+![Alt text](./img/apache-default-page.png, 200px)
 
 Step 5: As you want to use Apache with your PHP code you also need to install and enable Apache PHP module.
     sudo apt install libapache2-mod-php
@@ -81,16 +81,14 @@ In order to activate a site, use the command `a2ensite` (Apache 2 Enable Site):
 
 To disable a site, use the command `a2dissite`.
 
-#warn(**NEVER** modify the content of 'mods-enabled' and 'sites-enabled' !)
+**NEVER** modify the content of 'mods-enabled' and 'sites-enabled' !
 
 ## Test
 &nbsp;
 
 As there is default site already activated, try to open your browser and enter 'localhost' in URL. You’ll see this page:
 
-#imageCenterCorners(./img/apache-default-page.png, 400px, 0, 0)
-
-#newpage
+![ApacheDefault](./img/apache-default-page.png)
 
 # Basic HTML web site
 
@@ -163,7 +161,7 @@ We are now going to see how to set minimum security.#br
 
 When your server encounters an error, and cannot process the request, Apache will by default, give information about the server’s type and version. In your browser, try to access a page that does not exist on your server, such as **http://localhost/doesnt_exists**.
 
-#imageCenterCorners(./img/apache-not-found.png, 400px, 0, 0)
+![Alt text](./img/apache-not-found.png)
 
 * Go to folder: /etc/apache2
 * Edit the file: conf-available/security.conf
@@ -177,7 +175,7 @@ Refresh the page that does not exist.
 &nbsp;
 By default, when a file is not interpreted, apache displays the list of folders and files of the requested URL, allowing any visitor to access a part, if not all, of your files and folders.
 
-#imageCenterCorners(./img/folders-apache.png, 200px, 0, 0)
+![Alt text](./img/folders-apache.png)
 
 To avoid this behavior, edit the file `/etc/apache2/apache2.conf` and transform `Options Indexes FollowSymLinks` into `Options -Indexes -FollowSymLinks`.
 
@@ -200,8 +198,8 @@ Here are some explanations about the available options :
 
 To install it:
 
-#terminal(sudo apt install libapache2-mod-security2 -y
-#prompt sudo systemctl restart apache2)
+    sudo apt install libapache2-mod-security2 -y
+    sudo systemctl restart apache2)
 
 ### mod-evasive
 &nbsp;
@@ -209,8 +207,8 @@ To install it:
 
 To install it:
 
-#terminal(sudo apt install libapache2-mod-evasive -y
-#prompt sudo systemctl restart apache2)
+    sudo apt install libapache2-mod-evasive -y
+    sudo systemctl restart apache2
 
 ## Limit HTTP request size
 &nbsp;
@@ -219,13 +217,12 @@ In order to prevent the storage of your server from being parasitized by large u
 To do this, edit the global configuration file of your server or vhost and add the directive `LimitRequestBody`.
 
 For example:
-#terminalNoPrompt(
 ```sh
     <Directory "/home/YOUR_LOGIN/Rendu">
         LimitRequestBody 10485760
     </Directory>
 ```
-)
+
 ## Disable TRACE HTTP Request
 &nbsp;
 Trace HTTP Request is enabled by default. It can allow a hacker to steal your cookies.
@@ -236,7 +233,7 @@ If this behavior is not desired (most of the time), disable it by modifying `/et
 &nbsp;
 There is a pre-existing firewall on Ubuntu: ufw.
 
-#hint(https://doc.ubuntu-fr.org/ufw)
+*https://doc.ubuntu-fr.org/ufw*
 
 Once installed it manages traffic to and from your server, allowing you to finely manage your server's ports and their functions. The objective is not to allow attackers to take advantage of open (allow) and unprotected (vulnerabilities) ports.
 

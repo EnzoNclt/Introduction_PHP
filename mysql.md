@@ -128,4 +128,4 @@ and log back in with this command in terminal:
     mysql -u [username] -p
  
 ## Conclusion
-After completing this tutorial, you should have a sense of how to add new users and grant them a variety of permissions in a MySQL database. From here, you could continue to explore and experiment with different permissions settings for your database, or you may want to learn more about some higher-level MySQL configurations.
+After completing this short introduction to MySQL, you should have a sense of how to add new users and grant them a variety of permissions in a MySQL database. From here, you could continue to explore and experiment with different permissions settings for your database, or you may want to learn more about some higher-level MySQL configurations.
