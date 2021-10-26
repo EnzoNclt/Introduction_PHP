@@ -1,8 +1,8 @@
 # Introduction
 MySQL is an open-source database management software that helps users store, organize, and later retrieve data. It has a variety of options to grant specific users nuanced permissions within the tables and databases—this tutorial will give a short overview of a few of the many options.
 
-## Installation
-### Step 1 — Installing MySQL
+# Installation
+## Step 1 — Installing MySQL
 On Ubuntu 20.04, you can install MySQL using the APT package repository. At the time of this writing, the version of MySQL available in the default Ubuntu repository is version 8.0.19.
 
 To install it, update the package index on your server if you’ve not done so recently:
@@ -15,7 +15,7 @@ Then install the mysql-server package:
  
 This will install MySQL, but will not prompt you to set a password or make any other configuration changes. Because this leaves your installation of MySQL insecure, we will address this next.
 
-### Step 2 — Installing phpMyAdmin
+## Step 2 — Installing phpMyAdmin
 Please note, though, that the installation process requires you to make some choices to configure phpMyAdmin correctly. We’ll walk through these options shortly:
 
     sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl
@@ -43,11 +43,11 @@ Afterwards, restart Apache for your changes to be recognized:
  
 phpMyAdmin is now installed and configured to work with Apache. However, before you can log in and begin interacting with your MySQL databases, you will need to ensure that your MySQL users have the privileges required for interacting with the program.
 
-### Step 3 — Configure phpMyAdmin and user privileges
+## Step 3 — Configure phpMyAdmin and user privileges
 
 When you installed phpMyAdmin onto your server, it automatically created a database user called phpmyadmin which performs certain underlying processes for the program. Rather than logging in as this user with the administrative password you set during installation, it’s recommended that you log in as either your root MySQL user or as a user dedicated to managing databases through the phpMyAdmin interface.
 
-Configuring Password Access for the MySQL Root Account
+### Configuring Password Access for the MySQL Root Account
 
 In Ubuntu systems running MySQL 5.7 (and later versions), the root MySQL user is set to authenticate using the auth_socket plugin by default rather than with a password. This allows for some greater security and usability in many cases, but it can also complicate things when you need to allow an external program — like phpMyAdmin — to access the user.
 
@@ -77,7 +77,7 @@ You can see from this output that the root user will authenticate using a passwo
 &nbsp;
 
 
-#### Configuring Password Access for a Dedicated MySQL User
+### Configuring Password Access for a Dedicated MySQL User
 
 Alternatively, some may find that it better suits their workflow to connect to phpMyAdmin with a dedicated user. To do this, open up the MySQL shell once again:
 
@@ -113,7 +113,7 @@ When you log in, you’ll see the user interface, which will look something like
 
 Now that you’re able to connect and interact with phpMyAdmin, all that’s left to do is harden your system’s security to protect it from attackers.
 
-### Step 3 — Configuring MySQL
+## Step 3 — Alternative without phpMyAdmin of Configuration with MySQL
 For fresh installations of MySQL, you’ll want to run the DBMS’s included security script. This script changes some of the less secure default options for things like remote root logins and sample users.
 
 Run the security script with sudo:
@@ -215,7 +215,7 @@ You can review a user’s current permissions by running the following:
  
 Just as you can delete databases with DROP, you can use DROP to delete a user altogether:
 
-    DROP USER 'username'@'localhost';
+    DROP USER 'username'@'localhost'; ---> DON'T EXECUTE THIS NOW
  
 To test out your new user, log out by typing:
 
